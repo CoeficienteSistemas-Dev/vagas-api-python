@@ -1,6 +1,20 @@
 ## Como iniciar o projeto?
 
-É necessário instalar nodejs e yarn antes de prosseguir com as etapas seguintes.
+### Windows
+É necessário instalar `chocolatey`.
+https://chocolatey.org/install
+
+E posteriormente nodejs, npm ou yarn.
+https://tubemint.com/install-nodejs-npm-npx-yarn/
+
+## Instalação do nodejs (ou yarn)
+`choco install nodejs`
+
+`npm install -g yarn`
+
+## Linux ou Windows após as etapas anteriores
+
+É necessário ter instalado nodejs e yarn antes de prosseguir com as etapas seguintes.
 
 ### `yarn install`
 
@@ -10,7 +24,7 @@ Execute o comando para instalar as bibliotecas utilizadas no projeto dentro do d
 
 Execute o comando dentro do diretório frontend, para rodar o projeto e uma aba no seu navegador irá abrir.
 
-## `yarn dev:server`
+### `yarn dev:server`
 
 Execute o comando dentro do diretório nodejs para rodar o projeto nodejs e ele irá disponibilizar um servidor em http://localhost:59300/
 
