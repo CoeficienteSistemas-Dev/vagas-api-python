@@ -119,14 +119,20 @@ const Test1: React.FC = () => {
     } catch (err) {
       const timeTaken = new Date().getTime() - start.getTime();
       console.log('RequestErr', err, err.response);
+      let thisErr = '';
+      let thisStatus = 0;
+      if (err.response && err.response?.data?.message && err?.response?.status) {
+        thisErr = err.response.data.message;
+        thisStatus = err.response.data.status;
+      }
 
       setData([
         {
           id: v4(),
           time: new Date().toJSON(),
           timeSpent: timeTaken / 1000,
-          content: `${err}`,
-          status: err?.response?.status || 0,
+          content: thisErr,
+          status: thisStatus,
         },
         ...oldData,
       ]);

@@ -58,18 +58,21 @@ router.get('/GET/client', async (request, response) => {
       },
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 
@@ -134,18 +137,21 @@ router.get('/GET/user', async (request, response) => {
       },
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 
@@ -191,18 +197,21 @@ router.put('/PUT/user/:id', async (request, response) => {
       body: form,
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 
@@ -243,18 +252,21 @@ router.post('/POST/user', async (request, response) => {
       body: form,
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 
@@ -278,18 +290,21 @@ router.delete('/DELETE/user/:id', async (request, response) => {
       },
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 
@@ -337,18 +352,21 @@ router.get('/GET/list', async (request, response) => {
       },
     });
 
+    const responseAPIData = await responseAPI.json();
+
     if (!responseAPI.ok) {
       console.log('Error:', responseAPI);
-      throw new Error('Response not ok.');
+      throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-    const responseAPIData = await responseAPI.json();
 
     return response.json(responseAPIData);
   } catch (err) {
-    console.log('Error Name:', err.name);
-    console.warn('Error Message:', err.message);
-    throw new Error('Response Err.');
+    console.warn('Error Message:', err.message || 'no message');
+    console.warn('Error Status:', err.statusCode || 'no statusCode');
+    if (err instanceof AppError)
+      throw new AppError(err.message, err.statusCode);
+    throw new AppError('Response Err.');
   }
 });
 

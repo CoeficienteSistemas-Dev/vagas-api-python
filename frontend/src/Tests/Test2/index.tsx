@@ -128,6 +128,7 @@ const Test1: React.FC = () => {
       timer: 5000,
       text: 'Objeto inválido',
       icon: 'error',
+      position: 'top-right',
     });
     const start = new Date();
     try {
@@ -163,13 +164,20 @@ const Test1: React.FC = () => {
       Toast.fire();
       console.log('RequestErr', err, err.response);
 
+      let thisErr = '';
+      let thisStatus = 0;
+      if (err.response && err.response?.data?.message && err?.response?.status) {
+        thisErr = err.response.data.message;
+        thisStatus = err.response.data.status;
+      }
+
       setReqList([
         {
           id: v4(),
           time: new Date().toJSON(),
           timeSpent: timeTaken / 1000,
-          content: `${err}`,
-          status: err?.response?.status || 0,
+          content: thisErr,
+          status: thisStatus,
         },
         ...oldReq,
       ]);
@@ -229,14 +237,20 @@ const Test1: React.FC = () => {
       const timeTaken = new Date().getTime() - start.getTime();
       Toast.fire();
       console.log('RequestErr', err, err.response);
+      let thisErr = '';
+      let thisStatus = 0;
+      if (err.response && err.response?.data?.message && err?.response?.status) {
+        thisErr = err.response.data.message;
+        thisStatus = err.response.data.status;
+      }
 
       setReqList([
         {
           id: v4(),
           time: new Date().toJSON(),
           timeSpent: timeTaken / 1000,
-          content: `${err}`,
-          status: err?.response?.status || 0,
+          content: thisErr,
+          status: thisStatus,
         },
         ...oldReq,
       ]);
@@ -291,14 +305,20 @@ const Test1: React.FC = () => {
 
       Toast.fire();
       console.log('RequestErr', err, err.response);
+      let thisErr = '';
+      let thisStatus = 0;
+      if (err.response && err.response?.data?.message && err?.response?.status) {
+        thisErr = err.response.data.message;
+        thisStatus = err.response.data.status;
+      }
 
       setReqList([
         {
           id: v4(),
           time: new Date().toJSON(),
           timeSpent: timeTaken / 1000,
-          content: `${err}`,
-          status: err?.response?.status || 0,
+          content: thisErr,
+          status: thisStatus,
         },
         ...oldReq,
       ]);
@@ -354,14 +374,20 @@ const Test1: React.FC = () => {
 
       Toast.fire();
       console.log('RequestErr', err, err.response);
+      let thisErr = '';
+      let thisStatus = 0;
+      if (err.response && err.response?.data?.message && err?.response?.status) {
+        thisErr = err.response.data.message;
+        thisStatus = err.response.data.status;
+      }
 
       setReqList([
         {
           id: v4(),
           time: new Date().toJSON(),
           timeSpent: timeTaken / 1000,
-          content: `${err}`,
-          status: err?.response?.status || 0,
+          content: thisErr,
+          status: thisStatus,
         },
         ...oldReq,
       ]);
