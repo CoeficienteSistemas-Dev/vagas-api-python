@@ -19,11 +19,11 @@ console.log(
  *** TESTE 1 ***
  */
 router.get('/GET/client', async (request, response) => {
-  const { name, cpfCnpj }: { name?: string; cpfCnpj?: string } = request.query;
+  const { nome, cpfCnpj }: { nome?: string; cpfCnpj?: string } = request.query;
   const token = request.headers.authorization || '';
 
   let query = '';
-  if (name) query = `?nome=${encodeURI(name)}`;
+  if (nome) query = `?nome=${encodeURI(nome)}`;
   if (cpfCnpj) {
     query =
       query.length > 0
