@@ -65,7 +65,6 @@ router.get('/GET/client', async (request, response) => {
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-
     return response.json(responseAPIData);
   } catch (err) {
     console.warn('Error Message:', err.message || 'no message');
@@ -144,7 +143,6 @@ router.get('/GET/user', async (request, response) => {
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-
     return response.json(responseAPIData);
   } catch (err) {
     console.warn('Error Message:', err.message || 'no message');
@@ -183,9 +181,9 @@ router.put('/PUT/user/:id', async (request, response) => {
 
   try {
     const form = new FormData({ encoding: 'utf-8' });
-    form.append('name', name);
-    form.append('cpfCnpj', cpfCnpj);
-    form.append('ativo', `${ativo}`);
+    form.append('name', name || '');
+    form.append('cpfCnpj', cpfCnpj || '');
+    form.append('ativo', `${ativo}` || '');
 
     const responseAPI: Response = await fetch(`${baseURL}/PUT/user/${id}`, {
       method: 'PUT',
@@ -203,7 +201,6 @@ router.put('/PUT/user/:id', async (request, response) => {
       console.log('Error:', responseAPI);
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
-
 
     return response.json(responseAPIData);
   } catch (err) {
@@ -238,9 +235,9 @@ router.post('/POST/user', async (request, response) => {
 
   try {
     const form = new FormData({ encoding: 'utf-8' });
-    form.append('name', name);
-    form.append('cpfCnpj', cpfCnpj);
-    form.append('ativo', `${ativo}`);
+    form.append('name', name || '');
+    form.append('cpfCnpj', cpfCnpj || '');
+    form.append('ativo', `${ativo}` || '');
 
     const responseAPI: Response = await fetch(`${baseURL}/POST/user`, {
       method: 'POST',
@@ -258,7 +255,6 @@ router.post('/POST/user', async (request, response) => {
       console.log('Error:', responseAPI);
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
-
 
     return response.json(responseAPIData);
   } catch (err) {
@@ -296,7 +292,6 @@ router.delete('/DELETE/user/:id', async (request, response) => {
       console.log('Error:', responseAPI);
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
-
 
     return response.json(responseAPIData);
   } catch (err) {
@@ -359,7 +354,6 @@ router.get('/GET/list', async (request, response) => {
       throw new AppError(JSON.stringify(responseAPIData), responseAPI.status);
     }
 
-
     return response.json(responseAPIData);
   } catch (err) {
     console.warn('Error Message:', err.message || 'no message');
@@ -370,9 +364,6 @@ router.get('/GET/list', async (request, response) => {
   }
 });
 
-/*
- *** TESTE 1 ***
- */
 /*
  *** TESTE 3 ***
  */
