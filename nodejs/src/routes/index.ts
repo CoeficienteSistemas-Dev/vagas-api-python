@@ -158,8 +158,8 @@ router.put('/PUT/user/:id', async (request, response) => {
   const {
     name,
     cpfCnpj,
-    ativo,
-  }: { name?: string; cpfCnpj?: string; ativo?: boolean } = request.body;
+    isActive,
+  }: { name?: string; cpfCnpj?: string; isActive?: boolean } = request.body;
   console.log(
     `/PUT/user/${id} BODY: ${JSON.stringify(request.body)} PARAMS: ${
       request.params
@@ -183,7 +183,7 @@ router.put('/PUT/user/:id', async (request, response) => {
     const form = new FormData({ encoding: 'utf-8' });
     form.append('name', name || '');
     form.append('cpfCnpj', cpfCnpj || '');
-    form.append('ativo', `${ativo}` || '');
+    form.append('ativo', `${isActive}` || '');
 
     const responseAPI: Response = await fetch(`${baseURL}/PUT/user/${id}`, {
       method: 'PUT',
@@ -216,8 +216,8 @@ router.post('/POST/user', async (request, response) => {
   const {
     name,
     cpfCnpj,
-    ativo,
-  }: { name?: string; cpfCnpj?: string; ativo?: boolean } = request.body;
+    isActive,
+  }: { name?: string; cpfCnpj?: string; isActive?: boolean } = request.body;
   console.log(`/POST/user BODY: ${JSON.stringify(request.body)}`);
 
   // *** RETORNO ESPERADO ***
@@ -237,7 +237,7 @@ router.post('/POST/user', async (request, response) => {
     const form = new FormData({ encoding: 'utf-8' });
     form.append('name', name || '');
     form.append('cpfCnpj', cpfCnpj || '');
-    form.append('ativo', `${ativo}` || '');
+    form.append('ativo', `${isActive}` || '');
 
     const responseAPI: Response = await fetch(`${baseURL}/POST/user`, {
       method: 'POST',
